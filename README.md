@@ -41,13 +41,13 @@ The downloadable CV (`public/Armen_Hovasapyan_CV_*.pdf`) is **generated from the
 npm run generate:pdf   # renders app/data/site.ts → public/Armen_Hovasapyan_CV_*.pdf
 ```
 
-The script draws the CV directly with [pdf-lib](https://www.npmjs.com/package/pdf-lib) — pure JS, no browser dependency, ~1s runtime. On every push to `master`, the deploy workflow regenerates the PDF first and commits it back to the repo, so the "Download CV" buttons always serve the latest version.
+The script draws the CV directly with [pdf-lib](https://www.npmjs.com/package/pdf-lib) — pure JS, no browser dependency, ~1s runtime. On every push to `main`, the deploy workflow regenerates the PDF first and commits it back to the repo, so the "Download CV" buttons always serve the latest version.
 
 ## Deployment
 
 GitHub Pages is wired up with [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
 
-1. Push to `master` (or run the workflow manually).
+1. Push to `main` (or run the workflow manually).
 2. In the repository settings, set **Pages → Source → GitHub Actions**.
 3. The workflow first regenerates + commits the CV PDF from `app/data/site.ts`, then runs `npm run generate` and publishes `.output/public` with the fresh PDF included.
 
