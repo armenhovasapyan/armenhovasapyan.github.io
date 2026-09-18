@@ -43,11 +43,6 @@ const orderedSkills = computed(() => {
         />
       </TransitionGroup>
 
-      <p class="mt-3 text-center text-xs text-fg-dim">
-        Ordered for the
-        <span class="text-accent font-semibold">{{ position.label }}</span> stack.
-      </p>
-
       <p class="mt-8 text-center text-sm text-fg-dim">
         This is a selection — the
         <NuxtLink to="/cv" class="text-accent hover:text-accent-bright font-semibold"

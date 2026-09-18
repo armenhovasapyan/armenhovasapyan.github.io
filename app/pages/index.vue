@@ -7,11 +7,11 @@ import {
   skills,
   yearsOfExperience,
 } from '~/data/site'
-import HeroSection from '~/components/sections/HeroSection.vue'
-import SkillsSection from '~/components/sections/SkillsSection.vue'
-import ExperienceSection from '~/components/sections/ExperienceSection.vue'
-import ProjectsSection from '~/components/sections/ProjectsSection.vue'
-import ContactSection from '~/components/sections/ContactSection.vue'
+import HeroSection from '~/components/sections/main/HeroSection.vue'
+import SkillsSection from '~/components/sections/main/SkillsSection.vue'
+import ExperienceSection from '~/components/sections/main/ExperienceSection.vue'
+import ProjectsSection from '~/components/sections/main/ProjectsSection.vue'
+import ContactSection from '~/components/sections/main/ContactSection.vue'
 
 useSeoMeta({
   title: `${profile.name} — ${profile.role}`,

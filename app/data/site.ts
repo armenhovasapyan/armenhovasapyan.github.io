@@ -87,6 +87,7 @@ export const skills: Skill[] = [
   { id: 'phpunit', title: 'PHPUnit', icon:`${ICON}/phpunit.svg`, group: 'testing' },
   { id: 'codeception', title: 'Codeception', icon:`${ICON}/codeception.svg`, group: 'testing' },
   { id: 'jest', title: 'Jest', icon: `${ICON}/jest.svg`, group: 'testing' },
+  { id: 'playwright', title: 'Playwright', icon: `${ICON}/playwright.svg`, group: 'testing' },
   { id: 'pytest', title: 'PyTest', icon: `${ICON}/pytest.svg`, group: 'testing' },
   // Cloud & DevOps
   { id: 'aws', title: 'AWS', icon: `${ICON}/aws.svg`, group: 'devops' },
@@ -162,7 +163,7 @@ export const POSITIONS: Position[] = [
     id: 'php',
     label: 'PHP',
     headline: 'PHP / Laravel / Symfony / YII / C# / Node.js / Python',
-    leadSkills: ['php', 'laravel', 'symfony', 'yii'],
+    leadSkills: ['php', 'laravel', 'symfony', 'yii', 'phpunit', 'codeception', 'playwright'],
     summarySkills: ['PHP', 'Laravel', 'Symfony', 'Yii', 'C#', 'ASP.NET Core', 'Node.js', 'Python', 'JavaScript', 'TypeScript'],
     groupOrder: [
       'language',
@@ -185,7 +186,7 @@ export const POSITIONS: Position[] = [
     id: 'dotnet',
     label: '.NET',
     headline: 'C# / .NET / ASP.NET Core / PHP / JavaScript / TypeScript / Python',
-    leadSkills: ['csharp', 'aspnet-core', 'dotnet-core'],
+    leadSkills: ['csharp', 'aspnet-core', 'dotnet-core', 'xunit'],
     summarySkills: ['C#', 'ASP.NET Core', 'PHP', 'Node.js', 'Python', 'JavaScript', 'TypeScript'],
     groupOrder: [
       'language',
@@ -208,7 +209,7 @@ export const POSITIONS: Position[] = [
     id: 'nodejs',
     label: 'Node.js',
     headline: 'JavaScript / TypeScript / Node.js / NestJS / C# / PHP / Python',
-    leadSkills: ['javascript', 'typescript', 'nodejs', 'nestjs'],
+    leadSkills: ['javascript', 'typescript', 'nodejs', 'nestjs', 'jest', 'playwright'],
     summarySkills: ['TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'C#', 'ASP.NET Core', 'PHP', 'Python'],
     groupOrder: [
       'language',
