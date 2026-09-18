@@ -216,6 +216,16 @@ flow(
   { size: 10.5, gap: 2 },
 )
 
+// Location and availability share one line, echoing the site's hero badges.
+flow(
+  [
+    { text: profile.location, color: COLORS.muted },
+    { text: '  ·  ', color: COLORS.accentBright },
+    { text: profile.availability, bold: true, color: COLORS.accent },
+  ],
+  { size: 8.75, gap: 2 },
+)
+
 // The phone entry doubles as WhatsApp (same number); for print, the wa.me deep
 // link is rewritten to a plain tel: URI, and Telegram is skipped as noisy on paper.
 const pdfSocials = socials
@@ -239,19 +249,9 @@ const siteDisplay = profile.siteUrl.replace(/^https?:\/\//, '')
 const siteUrl = `${profile.siteUrl}/?skill=${position.id}`
 contactSegments.push(
   { text: '  ·  ', color: COLORS.accentBright },
-  { text: siteDisplay, url: siteUrl, color: COLORS.muted },
+  { text: siteDisplay, url: siteUrl },
 )
-flow([...contactSegments], { size: 8.75, gap: 2 })
-
-// Location and availability share one line, echoing the site's hero badges.
-flow(
-  [
-    { text: profile.location, color: COLORS.muted },
-    { text: '  ·  ', color: COLORS.accentBright },
-    { text: profile.availability, bold: true, color: COLORS.accent },
-  ],
-  { size: 8.75, gap: 8 },
-)
+flow([...contactSegments], { size: 8.75, gap: 8 })
 
 /* ------------------------------------------------------------------ */
 /* Sections                                                            */
