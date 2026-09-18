@@ -15,7 +15,7 @@
 import { writeFile, stat, mkdir } from 'node:fs/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import path from 'node:path'
-import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
+import { PDFDocument, PDFString, StandardFonts, rgb } from 'pdf-lib'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -144,7 +144,9 @@ const flow = (segments, { size = 9.5, x = MARGIN.left, indent = 0, gap = 3, maxW
           Rect: [cx, y - 1.5, cx + word.w, y + size + 1.5],
           Border: [0, 0, 0],
           C: [0.02, 0.47, 0.34],
-          A: { Type: 'Action', S: 'URI', URI: word.url },
+          // URI must be a PDF string, not a name — context.obj() maps plain
+          // JS strings to PDFName, which strict viewers reject as a link target.
+          A: { Type: 'Action', S: 'URI', URI: PDFString.of(word.url) },
         })
         page.node.addAnnot(doc.context.register(link))
       }
@@ -229,6 +231,16 @@ const contactSegments = pdfSocials.flatMap((s, i) => {
     ? [...seg, { text: '  ·  ', color: COLORS.accentBright }]
     : seg
 })
+
+// Portfolio URL closes the line. Displayed clean (no query params), but the
+// link annotation carries ?skill=<position> so it opens the site pre-switched
+// to this CV's stack.
+const siteDisplay = profile.siteUrl.replace(/^https?:\/\//, '')
+const siteUrl = `${profile.siteUrl}/?skill=${position.id}`
+contactSegments.push(
+  { text: '  ·  ', color: COLORS.accentBright },
+  { text: siteDisplay, url: siteUrl, color: COLORS.muted },
+)
 flow([...contactSegments], { size: 8.75, gap: 2 })
 
 // Location and availability share one line, echoing the site's hero badges.
