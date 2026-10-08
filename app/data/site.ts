@@ -186,7 +186,7 @@ export const POSITIONS: Position[] = [
     id: 'dotnet',
     label: '.NET',
     headline: 'C# / .NET / ASP.NET Core / PHP / JavaScript / TypeScript / Python',
-    leadSkills: ['csharp', 'dotnet-core', 'aspnet-core', 'xunit'],
+    leadSkills: ['csharp', 'dotnet-core', 'aspnet-core', 'aspnet-mvc', 'xunit'],
     summarySkills: ['C#', 'ASP.NET Core', 'PHP', 'Node.js', 'Python', 'JavaScript', 'TypeScript'],
     heroStack: ['C#', 'ASP.NET Core', 'ASP.NET API', 'ASP.NET MVC'],
     groupOrder: [
