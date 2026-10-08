@@ -8,12 +8,19 @@ import SkilsSection from '~/components/sections/cv/SkilsSection.vue'
 import SummarySection from '~/components/sections/cv/SummarySection.vue'
 import { profile } from '~/data/site'
 
+const { position } = usePosition()
+
 useSeoMeta({
   title: `CV — ${profile.name}`,
-  description: `Curriculum vitae of ${profile.name}, ${profile.subRole}: professional experience, technical skills, education, and languages.`,
+  description: () =>
+    `Curriculum vitae of ${profile.name}, ${profile.subRole} (${position.value.label}): professional experience with ${position.value.summarySkills.join(', ')}, technical skills, education, and languages.`,
   ogTitle: `${profile.name} — CV`,
-  ogDescription: profile.subRole,
-  twitterCard: 'summary',
+  ogDescription: () =>
+    `${profile.role} — ${position.value.label} CV: ${position.value.headline}. Professional experience, technical skills, education, and languages.`,
+  ogImage: `${profile.siteUrl}/og-image.png`,
+  ogImageAlt: `${profile.name} — CV`,
+  twitterCard: 'summary_large_image',
+  twitterImage: `${profile.siteUrl}/og-image.png`,
   robots: 'index, follow',
 })
 

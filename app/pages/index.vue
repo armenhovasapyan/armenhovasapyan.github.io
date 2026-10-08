@@ -13,39 +13,54 @@ import ExperienceSection from '~/components/sections/main/ExperienceSection.vue'
 import ProjectsSection from '~/components/sections/main/ProjectsSection.vue'
 import ContactSection from '~/components/sections/main/ContactSection.vue'
 
+const { position } = usePosition()
+
+// The whole document head is position-aware: the meta description,
+// og:description, the `alternate` PDF link, and the Person JSON-LD all
+// re-evaluate when the visitor switches position, so the head mirrors the
+// visible page. useSeoMeta takes per-field getters (which patch meta tags);
+// useHead gets the getter form, which is what makes links and scripts reactive.
 useSeoMeta({
   title: `${profile.name} — ${profile.role}`,
   description: () =>
-    `${profile.name}, ${profile.role} in ${profile.location}: ${yearsOfExperience()} years designing and delivering scalable web applications and backend systems with .NET, PHP, Node.js, and Python.`,
+    `${profile.name}, ${profile.role} in ${profile.location}: ${yearsOfExperience()}+ years designing and delivering scalable web applications and backend systems with ${position.value.summarySkills.join(', ')}.`,
   ogTitle: `${profile.name} — ${profile.role}`,
-  ogDescription:
-    'Software Engineer specializing in scalable backend systems and full-stack web applications — .NET, PHP, Node.js, and Python.',
+  ogDescription: () =>
+    `Lead Software Engineer specializing in ${position.value.headline} — scalable backend systems and full-stack web applications.`,
   ogType: 'profile',
-  twitterCard: 'summary',
+  ogImage: `${profile.siteUrl}/og-image.png`,
+  ogImageAlt: `${profile.name} — ${profile.role}`,
+  twitterCard: 'summary_large_image',
   twitterTitle: profile.name,
   twitterDescription: profile.role,
+  twitterImage: `${profile.siteUrl}/og-image.png`,
 })
 
-useHead({
+useHead(() => ({
   titleTemplate: (title) => title ?? profile.name,
   link: [
     { rel: 'canonical', href: `${profile.siteUrl}/` },
     {
+      // Explicit key: when the position changes, unhead updates this tag in
+      // place instead of appending a second <link> with a different href.
+      key: 'cv-pdf',
       rel: 'alternate',
       type: 'application/pdf',
-      href: `${profile.siteUrl}${profile.cvPdf}`,
+      href: `${profile.siteUrl}${position.value.pdf}`,
     },
   ],
   script: [
     {
       type: 'application/ld+json',
+      key: 'ld-person',
+      // `knowsAbout` leads with the selected position's stack, so structured
+      // data matches the emphasis a visitor sees on screen.
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: profile.name,
         jobTitle: profile.role,
-        description:
-          `Software Engineer with ${yearsOfExperience()} years designing, building, and maintaining scalable web applications and backend systems.`,
+        description: `Lead Software Engineer with ${yearsOfExperience()}+ years designing, building, and maintaining scalable web applications and backend systems with ${position.value.summarySkills.join(', ')}.`,
         email: `mailto:${profile.email}`,
         telephone: profile.phones[0],
         url: `${profile.siteUrl}/`,
@@ -53,7 +68,12 @@ useHead({
           '@type': 'PostalAddress',
           addressLocality: profile.location,
         },
-        knowsAbout: skills.map((s) => s.title),
+        knowsAbout: [
+          ...position.value.summarySkills,
+          ...skills
+            .map((s) => s.title)
+            .filter((t) => !position.value.summarySkills.includes(t)),
+        ],
         knowsLanguage: languages.map((l) => l.name),
         worksFor: {
           '@type': 'Organization',
@@ -68,6 +88,7 @@ useHead({
     },
     {
       type: 'application/ld+json',
+      key: 'ld-projects',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'ItemList',
@@ -84,7 +105,7 @@ useHead({
       }),
     },
   ],
-})
+}))
 </script>
 
 <template>

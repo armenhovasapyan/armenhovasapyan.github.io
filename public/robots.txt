@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://armenhovasapyan.github.io/sitemap.xml

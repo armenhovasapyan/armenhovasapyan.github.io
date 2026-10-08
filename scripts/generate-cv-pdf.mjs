@@ -81,7 +81,7 @@ const bold = await doc.embedFont(StandardFonts.HelveticaBold)
 doc.setTitle(`${profile.name} — CV (${position.label})`)
 doc.setAuthor(profile.name)
 doc.setSubject('Curriculum Vitae')
-doc.setKeywords(['CV', 'resume', profile.name, 'Software Engineer'])
+doc.setKeywords(['CV', 'resume', profile.name, 'Lead Software Engineer'])
 doc.setProducer('pdf-lib (generated from site data)')
 
 let page = doc.addPage([A4.W, A4.H])

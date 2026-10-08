@@ -1,5 +1,6 @@
 type Options = {
-  strings: string[]
+  /** Plain list, or a getter so callers can derive strings from reactive state. */
+  strings: string[] | (() => string[])
   typeSpeed?: number
   backSpeed?: number
   holdMs?: number
@@ -20,10 +21,15 @@ export function useTyping(opts: Options) {
   let timer: ReturnType<typeof setTimeout> | null = null
   let stopped = false
 
+  // Resolved on every tick so a getter-backed list stays in sync with the
+  // caller's reactive state (e.g. the selected position).
+  const list = () => (typeof opts.strings === 'function' ? opts.strings() : opts.strings)
+
   const tick = () => {
     if (stopped) return
 
-    const current = opts.strings[stringIdx] ?? ''
+    const strings = list()
+    const current = strings[stringIdx] ?? ''
 
     if (phase === 'typing') {
       charIdx += 1
@@ -42,7 +48,7 @@ export function useTyping(opts: Options) {
       text.value = current.slice(0, charIdx)
       if (charIdx <= 0) {
         phase = 'typing'
-        stringIdx = (stringIdx + 1) % opts.strings.length
+        stringIdx = (stringIdx + 1) % strings.length
         if (!opts.loop && stringIdx === 0) {
           stopped = true
           return
@@ -56,7 +62,7 @@ export function useTyping(opts: Options) {
 
   onMounted(() => {
     if (reduced) {
-      text.value = opts.strings[0] ?? ''
+      text.value = list()[0] ?? ''
       cursor.value = false
       return
     }

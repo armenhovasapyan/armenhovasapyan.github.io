@@ -4,10 +4,12 @@ import { profile } from '~/data/site'
 const { position } = usePosition()
 
 const { text, cursor } = useTyping({
-  strings: [
-    'Software Engineer',
+  // Getter form: the stack line follows the selected position, so it picks up
+  // a position switch on the next typing tick instead of freezing at mount.
+  strings: () => [
+    'Lead Software Engineer',
     'Backend & Full-Stack Developer',
-    '.NET · PHP · Node.js · Python',
+    position.value.heroStack.join(' · '),
     'Designing reliable, scalable systems',
   ],
   typeSpeed: 60,

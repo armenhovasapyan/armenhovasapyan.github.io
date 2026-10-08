@@ -1,6 +1,7 @@
 name: Deploy to GitHub Pages
 
-# On every push, the position-specific CV PDFs (.NET / PHP / Node.js) are
+# On every push, the position-specific CV PDFs (.NET / PHP / Node.js /
+# Python) are
 # first regenerated from the site data (`app/data/site.ts`) via
 # `npm run generate:pdf` and committed back to the repo — so the downloadable
 # CVs are always the latest. The build job then receives the freshly
@@ -47,6 +48,7 @@ jobs:
             public/Armen_Hovasapyan_CV_dotnet.pdf
             public/Armen_Hovasapyan_CV_php.pdf
             public/Armen_Hovasapyan_CV_nodejs.pdf
+            public/Armen_Hovasapyan_CV_python.pdf
 
       - name: Commit updated PDF
         id: commit

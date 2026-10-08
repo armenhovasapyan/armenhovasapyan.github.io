@@ -17,7 +17,6 @@ export const profile = {
   name: 'Armen Hovasapyan',
   role: 'Lead Software Engineer',
   subRole: 'Backend / Full-Stack Developer',
-  primarySkills: 'C# / .NET / PHP / Node.js / Python',
   tagline:
     'I design, build, and operate scalable backend systems and full-stack web applications — from healthcare platforms to high-traffic iGaming services.',
   availability: 'Available for remote work and relocation',
@@ -26,7 +25,6 @@ export const profile = {
   phones: ['+374 77 537 319'],
   linkedin: 'https://www.linkedin.com/in/armenhovasapyan',
   github: 'https://github.com/armenhovasapyan',
-  cvPdf: '/Armen_Hovasapyan_CV.pdf',
   siteUrl: 'https://armenhovasapyan.github.io',
 } as const
 
@@ -34,37 +32,37 @@ const ICON = '/img/icons'
 
 export const skills: Skill[] = [
   // Languages
-  { id: 'csharp', title: 'C#', icon: `${ICON}/csharp.svg`, group: 'language' },
   { id: 'php', title: 'PHP', icon: `${ICON}/php.svg`, group: 'language' },
+  { id: 'csharp', title: 'C#', icon: `${ICON}/csharp.svg`, group: 'language' },
   { id: 'python', title: 'Python', icon: `${ICON}/python.svg`, group: 'language' },
   { id: 'javascript', title: 'JavaScript', icon: `${ICON}/javascript.svg`, group: 'language' },
   { id: 'typescript', title: 'TypeScript', icon: `${ICON}/typescript.svg`, group: 'language' },
-  { id: 'sql', title: 'SQL', group: 'language' },
+  { id: 'sql', title: 'SQL', icon: `${ICON}/sql.svg`, group: 'language' },
   // Backend
-  { id: 'aspnet-core', title: 'ASP.NET Core Web API', icon: `${ICON}/aspnet-core.svg`, group: 'backend' },
-  { id: 'aspnet-mvc', title: 'ASP.NET MVC', icon: `${ICON}/aspnet-core.svg`, group: 'backend' },
-  { id: 'dotnet-core', title: '.NET Core', icon: `${ICON}/aspnet-core.svg`, group: 'backend' },
   { id: 'laravel', title: 'Laravel', icon: `${ICON}/laravel.svg`, group: 'backend' },
   { id: 'symfony', title: 'Symfony', icon: `${ICON}/symfony.svg`, group: 'backend' },
   { id: 'yii', title: 'Yii', icon: `${ICON}/yii.svg`, group: 'backend' },
+  { id: 'dotnet-core', title: '.NET Core', icon: `${ICON}/aspnet-core.svg`, group: 'backend' },
+  { id: 'aspnet-core', title: 'ASP.NET Core Web API', icon: `${ICON}/aspnet-core.svg`, group: 'backend' },
+  { id: 'aspnet-mvc', title: 'ASP.NET MVC', icon: `${ICON}/aspnet-core.svg`, group: 'backend' },
   { id: 'nodejs', title: 'Node.js', icon: `${ICON}/nodejs.svg`, group: 'backend' },
   { id: 'nestjs', title: 'NestJS', icon: `${ICON}/nestjs.svg`, group: 'backend' },
   { id: 'express', title: 'Express', icon: `${ICON}/express.svg`, group: 'backend' },
   { id: 'fastapi', title: 'FastAPI', icon: `${ICON}/fastapi.svg`, group: 'backend' },
-  { id: 'falcon', title: 'Falcon', group: 'backend' },
+  { id: 'falcon', title: 'Falcon', icon: `${ICON}/falcon.svg`, group: 'backend' },
   // Frontend
   { id: 'react', title: 'React', icon: `${ICON}/react.svg`, group: 'frontend' },
   { id: 'vue', title: 'Vue.js', icon: `${ICON}/vuejs.svg`, group: 'frontend' },
   { id: 'nuxt', title: 'Nuxt', icon: `${ICON}/nuxtjs.svg`, group: 'frontend' },
-  { id: 'next', title: 'Next', icon: `${ICON}/nextjs.svg`, group: 'frontend' },
+  { id: 'next', title: 'Next.js', icon: `${ICON}/nextjs.svg`, group: 'frontend' },
   { id: 'jquery', title: 'jQuery', icon: `${ICON}/jquery.svg`, group: 'frontend' },
   { id: 'bootstrap', title: 'Bootstrap', icon: `${ICON}/bootstrap.svg`, group: 'frontend' },
   { id: 'angularjs', title: 'AngularJS', icon: `${ICON}/angularjs.svg`, group: 'frontend' },
   // Databases
-  { id: 'mssql', title: 'Microsoft SQL Server', icon: `${ICON}/mssql.svg`, group: 'database' },
-  { id: 'tsql', title: 'T-SQL', group: 'database' },
   { id: 'postgresql', title: 'PostgreSQL', icon: `${ICON}/postgresql.svg`, group: 'database' },
   { id: 'mysql', title: 'MySQL', icon: `${ICON}/mysql.svg`, group: 'database' },
+  { id: 'mssql', title: 'Microsoft SQL Server', icon: `${ICON}/mssql.svg`, group: 'database' },
+  { id: 'tsql', title: 'T-SQL', group: 'database' },
   { id: 'mongodb', title: 'MongoDB', icon: `${ICON}/mongodb.svg`, group: 'database' },
   { id: 'sqlite', title: 'SQLite', icon: `${ICON}/sqlite.svg`, group: 'database' },
   { id: 'firebase', title: 'Firebase', icon: `${ICON}/firebase.svg`, group: 'database' },
@@ -82,13 +80,14 @@ export const skills: Skill[] = [
   { id: 'tdd', title: 'TDD', group: 'architecture' },
   { id: 'rest-apis', title: 'RESTful Web APIs', group: 'architecture' },
   { id: 'oop', title: 'Object-Oriented Programming', group: 'architecture' },
+  { id: 'rag', title: 'RAG (Retrieval-Augmented Generation)', group: 'architecture' },
   // Testing
   { id: 'xunit', title: 'xUnit', group: 'testing' },
   { id: 'phpunit', title: 'PHPUnit', icon:`${ICON}/phpunit.svg`, group: 'testing' },
   { id: 'codeception', title: 'Codeception', icon:`${ICON}/codeception.svg`, group: 'testing' },
   { id: 'jest', title: 'Jest', icon: `${ICON}/jest.svg`, group: 'testing' },
   { id: 'playwright', title: 'Playwright', icon: `${ICON}/playwright.svg`, group: 'testing' },
-  { id: 'pytest', title: 'PyTest', icon: `${ICON}/pytest.svg`, group: 'testing' },
+  { id: 'pytest', title: 'pytest', icon: `${ICON}/pytest.svg`, group: 'testing' },
   // Cloud & DevOps
   { id: 'aws', title: 'AWS', icon: `${ICON}/aws.svg`, group: 'devops' },
   { id: 'gcp', title: 'GCP', icon: `${ICON}/googlecloud.svg`, group: 'devops' },
@@ -121,7 +120,6 @@ export const skills: Skill[] = [
 
 export const skillGroupLabels: Record<SkillGroupKey, string> = {
   language: 'Languages',
-  dotnet: '.NET',
   backend: 'Backend',
   frontend: 'Frontend',
   database: 'Databases',
@@ -141,7 +139,7 @@ type SkillGroupKey = Skill['group']
 /* Target positions                                                    */
 /* ------------------------------------------------------------------ */
 
-export type PositionId = 'dotnet' | 'php' | 'nodejs'
+export type PositionId = 'dotnet' | 'php' | 'nodejs' | 'python'
 
 export type Position = {
   id: PositionId
@@ -154,6 +152,8 @@ export type Position = {
   leadSkills: string[]
   /** Skills named in the CV summary's first body line, ordered for this position. */
   summarySkills: string[]
+  /** Short stack line shown in the hero typewriter, tuned per position. */
+  heroStack: string[]
   /** Generated PDF filename (public/, produced by scripts/generate-cv-pdf.mjs). */
   pdf: string
 }
@@ -162,23 +162,23 @@ export const POSITIONS: Position[] = [
   {
     id: 'php',
     label: 'PHP',
-    headline: 'PHP / Laravel / Symfony / YII / C# / Node.js / Python',
+    headline: 'PHP / Laravel / Symfony / Yii / C# / Node.js / Python',
     leadSkills: ['php', 'laravel', 'symfony', 'yii', 'phpunit', 'codeception', 'playwright'],
     summarySkills: ['PHP', 'Laravel', 'Symfony', 'Yii', 'C#', 'ASP.NET Core', 'Node.js', 'Python', 'JavaScript', 'TypeScript'],
+    heroStack: ['PHP', 'Laravel', 'Symfony', 'Yii'],
     groupOrder: [
       'language',
       'backend',
-      'dotnet',
-      'architecture',
-      'database',
-      'devops',
-      'messaging',
       'frontend',
+      'database',
+      'messaging',
+      'devops',
       'testing',
       'monitoring',
       'project',
       'ai',
       'automation',
+      'architecture',
     ],
     pdf: '/Armen_Hovasapyan_CV_php.pdf',
   },
@@ -186,31 +186,32 @@ export const POSITIONS: Position[] = [
     id: 'dotnet',
     label: '.NET',
     headline: 'C# / .NET / ASP.NET Core / PHP / JavaScript / TypeScript / Python',
-    leadSkills: ['csharp', 'aspnet-core', 'dotnet-core', 'xunit'],
+    leadSkills: ['csharp', 'dotnet-core', 'aspnet-core', 'xunit'],
     summarySkills: ['C#', 'ASP.NET Core', 'PHP', 'Node.js', 'Python', 'JavaScript', 'TypeScript'],
+    heroStack: ['C#', 'ASP.NET Core', 'ASP.NET API', 'ASP.NET MVC'],
     groupOrder: [
       'language',
-      'dotnet',
       'backend',
-      'architecture',
-      'database',
-      'devops',
-      'messaging',
       'frontend',
+      'database',
+      'messaging',
+      'devops',
       'testing',
       'monitoring',
       'project',
       'ai',
       'automation',
+      'architecture',
     ],
     pdf: '/Armen_Hovasapyan_CV_dotnet.pdf',
   },
   {
     id: 'nodejs',
     label: 'Node.js',
-    headline: 'JavaScript / TypeScript / Node.js / NestJS / C# / PHP / Python',
+    headline: 'JavaScript / TypeScript / Node.js / NestJS / PHP / C# / Python',
     leadSkills: ['javascript', 'typescript', 'nodejs', 'nestjs', 'jest', 'playwright'],
-    summarySkills: ['TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'C#', 'ASP.NET Core', 'PHP', 'Python'],
+    summarySkills: ['TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'PHP', 'C#', 'ASP.NET Core', 'Python'],
+    heroStack: ['TypeScript', 'JavaScript', 'Node.js', 'NestJS'],
     groupOrder: [
       'language',
       'backend',
@@ -218,28 +219,51 @@ export const POSITIONS: Position[] = [
       'database',
       'messaging',
       'devops',
-      'architecture',
-      'dotnet',
       'testing',
       'monitoring',
       'project',
       'ai',
       'automation',
+      'architecture',
     ],
     pdf: '/Armen_Hovasapyan_CV_nodejs.pdf',
+  },
+  {
+    id: 'python',
+    label: 'Python',
+    headline: 'Python / FastAPI / Falcon / PHP / C# / Node.js',
+    leadSkills: ['python', 'fastapi', 'falcon', 'pytest'],
+    summarySkills: ['Python', 'FastAPI', 'Falcon', 'PHP', 'C#', 'ASP.NET Core', 'Node.js', 'JavaScript', 'TypeScript'],
+    heroStack: ['Python', 'FastAPI', 'Falcon'],
+    groupOrder: [
+      'language',
+      'backend',
+      'frontend',
+      'database',
+      'messaging',
+      'devops',
+      'testing',
+      'monitoring',
+      'project',
+      'ai',
+      'automation',
+      'architecture',
+    ],
+    pdf: '/Armen_Hovasapyan_CV_python.pdf',
   },
 ]
 
 export const DEFAULT_POSITION: PositionId = 'php'
 
 export const featuredSkills: Skill[] = [
-  'csharp',
-  'aspnet-core',
   'php',
   'laravel',
   'symfony',
-  'python',
-  'fastapi',
+  'yii',
+  'csharp',
+  'dotnet-core',
+  'aspnet-core',
+  'aspnet-mvc',
   'javascript',
   'typescript',
   'nodejs',
@@ -249,9 +273,13 @@ export const featuredSkills: Skill[] = [
   'vue',
   'nuxt',
   'jquery',
-  'mssql',
+  'python',
+  'fastapi',
+  'falcon',
+  'sql',
   'postgresql',
   'mysql',
+  'mssql',
   'mongodb',
   'redis',
   'rabbitmq',
@@ -396,9 +424,9 @@ export const cvExperience: CvExperience[] = [
     company: 'Independent Software Engineer',
     role: 'Lead Software Engineer / Architect',
     location: 'Yerevan, Armenia',
-    period: 'Mar 2026 - PRESENT',
+    period: 'Mar 2026 – PRESENT',
     technologies:
-      'C#, ASP.NET Core, Python, FastAPI, PHP, Laravel, Symfony, JavaScript, TypeScript, NestJS, React, Vue.js, Nuxt, Microsoft SQL Server, PostgreSQL, MySQL, SQLite, Redis, RabbitMQ, Docker',
+      'C#, ASP.NET Core, Python, FastAPI, async, OpenAPI/Swagger, pytest, PHP, Laravel, Symfony, JavaScript, TypeScript, NestJS, React, Vue.js, Nuxt, Microsoft SQL Server, PostgreSQL, MySQL, SQLite, Redis, RabbitMQ, Docker',
     achievements: [
       'Designing and developing scalable web applications and backend services using C#, ASP.NET Core Web API, PHP, Python, and TypeScript.',
       'Developing RESTful Web APIs with ASP.NET Core, applying object-oriented programming, SOLID principles, Clean Architecture, and Domain-Driven Design.',
@@ -445,7 +473,6 @@ export const cvExperience: CvExperience[] = [
           'GitHub Actions',
           'Datadog',
           'Sentry',
-          'etc',
         ],
       },
       {
@@ -493,7 +520,7 @@ export const cvExperience: CvExperience[] = [
     company: 'BigBrain',
     role: 'Senior Software Engineer',
     location: 'Yerevan, Armenia',
-    period: 'Sep 2016 - Oct 2018',
+    period: 'Sep 2016 – Oct 2018',
     projects: [
       {
         name: 'MDsave (HealthCare platform)',
@@ -526,7 +553,7 @@ export const cvExperience: CvExperience[] = [
     methodologies: 'Agile/Scrum',
     achievements: [
       'Developed and maintained backend services and Web API integrations.',
-      'Developed and optimized complex features using PHP and Angular, ensuring performance and scalability.',
+      'Developed and optimized complex features using PHP and AngularJS, ensuring performance and scalability.',
       'Worked with PostgreSQL, RabbitMQ, and Redis.',
       'Investigated production issues, performance bottlenecks, and application errors.',
       'Collaborated with product managers and developers to translate business needs into technical solutions.',
@@ -539,7 +566,7 @@ export const cvExperience: CvExperience[] = [
     company: 'Web Projects',
     role: 'Project Manager / Team Lead',
     location: 'Yerevan, Armenia',
-    period: 'Mar 2016 - Sep 2016',
+    period: 'Mar 2016 – Sep 2016',
     projects: [
       {
         name: 'PayKickstart',
@@ -585,7 +612,7 @@ export const cvExperience: CvExperience[] = [
     company: 'I Like IT',
     role: 'Web Developer',
     location: 'Yerevan, Armenia',
-    period: 'Oct 2015 - Mar 2016',
+    period: 'Oct 2015 – Mar 2016',
     projects: [
       {
         name: 'NEON',
@@ -628,7 +655,7 @@ export const cvExperience: CvExperience[] = [
     company: 'Iguan Systems',
     role: 'Web Developer',
     location: 'Yerevan, Armenia',
-    period: 'Jul 2014 - Oct 2015',
+    period: 'Jul 2014 – Oct 2015',
     projects: [
       {
         name: 'Balloon in a Box',
@@ -676,8 +703,8 @@ export const cvExperience: CvExperience[] = [
         technologies: [
           'PHP',
           'Laravel',
-          'API',
-          'Composer package'
+          'Payment API',
+          'Composer'
         ],
       },
       {
@@ -689,14 +716,14 @@ export const cvExperience: CvExperience[] = [
           'Ionic',
           'Cordova',
           'AngularJS',
-          'Firabase',
+          'Firebase',
           'jQuery',
           'Bootstrap'
         ],
       }
     ],
     technologies:
-      'PHP, Laravel, CodeIgniter, Zend, Magento, MySQL, MS SQL, MongoDB, ElasticSearch, JavaScript, jQuery, AngularJS, Bootstrap, Ionic, Jira, Trello',
+      'PHP, Laravel, CodeIgniter, Zend, Magento, MySQL, SQL Server, MongoDB, ElasticSearch, JavaScript, jQuery, AngularJS, Bootstrap, Ionic, Jira, Trello',
     achievements: [
       'On-site design and development of web applications in PHP/MySQL.',
       'Developed web services in PHP interfacing with third-party APIs.',
@@ -709,9 +736,9 @@ export const cvExperience: CvExperience[] = [
 
 export const summary = {
   intro:
-    `Software Engineer with ${yearsOfExperience()} years of professional software development experience building and maintaining scalable web applications and backend systems.`,
+    `Software Engineer with ${yearsOfExperience()}+ years of professional software development experience building and maintaining scalable web applications and backend systems.`,
   highlights: [
-    `${yearsOfExperience()} years delivering production-grade backend and full-stack systems.`,
+    `${yearsOfExperience()}+ years delivering production-grade backend and full-stack systems.`,
     'Led and mentored engineering teams across healthcare and iGaming platforms.',
     'Applied Microservices, Modular Monolith, Clean Architecture, and DDD in production.',
     'Agile/Scrum delivery in cross-functional teams with developers, QA, and product managers.',
@@ -767,7 +794,7 @@ export const socials: SocialLink[] = [
 
 export const education = [
   {
-    period: '2003 - 2008',
+    period: '2003 – 2008',
     name: 'State Engineering University of Armenia, Yerevan',
     degree: "Master's Degree — Technology of Machine Building",
   },

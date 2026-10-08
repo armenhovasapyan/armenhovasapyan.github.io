@@ -6,7 +6,7 @@
     "build": "nuxt generate",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "generate:pdf": "node scripts/generate-cv-pdf.mjs --position=dotnet && node scripts/generate-cv-pdf.mjs --position=php && node scripts/generate-cv-pdf.mjs --position=nodejs",
+    "generate:pdf": "node scripts/generate-cv-pdf.mjs --position=dotnet && node scripts/generate-cv-pdf.mjs --position=php && node scripts/generate-cv-pdf.mjs --position=nodejs && node scripts/generate-cv-pdf.mjs --position=python",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck"

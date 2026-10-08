@@ -1,6 +1,5 @@
 export type SkillGroup =
   | 'language'
-  | 'dotnet'
   | 'backend'
   | 'frontend'
   | 'database'
