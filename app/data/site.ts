@@ -736,7 +736,7 @@ export const cvExperience: CvExperience[] = [
 
 export const summary = {
   intro:
-    `Software Engineer with ${yearsOfExperience()}+ years of professional software development experience building and maintaining scalable web applications and backend systems.`,
+    `Lead Software Engineer with ${yearsOfExperience()}+ years of professional software development experience building and maintaining scalable web applications and backend systems.`,
   highlights: [
     `${yearsOfExperience()}+ years delivering production-grade backend and full-stack systems.`,
     'Led and mentored engineering teams across healthcare and iGaming platforms.',
